@@ -5,17 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BiciNaked - Minimal Bikes</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER -->
     <header class="header">
         <nav class="navbar">
             <div class="logo">
                 <i class="fas fa-bicycle"></i>
                 <span>Bici<span>Naked</span></span>
             </div>
-            <!-- Resto igual... -->
             <ul class="nav-links">
                 <li><a href="#home">Inicio</a></li>
-                <li><a href="#configurador">Naked Config</a
+                <li><a href="#configurador">Config</a></li>
+                <li><a href="#productos">Builds</a></li>
+            </ul>
+            <div class="carrito">
+                <i class="fas fa-shopping-cart" id="cart-icon"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bici<span>Naked</span></h1>
+            <p>Minimal. Raw. Perfect.</p>
+            <a href="#configurador" class="cta-btn">Build Yours</a>
+        </div>
+    </section>
+
+    <section id="configurador" class="configurador">
+        <div class="container">
+            <h2>Build Your Naked</h2>
+            <div class="configurador-grid">
+                <div class="bike-view">
+                    <canvas id="bikeCanvas" width="500" height="420"></canvas>
+                    <div class="price-tag">
+                        <span id="precioConfig">$1,899</span>
+                    </div>
+                </div>
+                <div class="opciones">
+                    <div class="opcion" data-tipo="cuadro">
+                        <h3><i class="fas fa-cube"></i> Frame</h3>
+                        <div class="opciones-lista">
+                            <button class="opcion-btn active" data-valor="black"><span>Black Carbon</span> <small>$0</small></button>
+                            <button class="opcion-btn" data-valor="white"><span>White Carbon</span> <small>$250</small></button>
+                        </div>
+                    </div>
+                    <div class="opcion" data-tipo="ruedas">
+                        <h3><i class="fas fa-circle"></i> Wheels</h3>
+                        <div class="opciones-lista">
+                            <button class="opcion-btn active" data-valor="29-black"><span>29" Black</span> <small>$0</small></button>
+                            <button class="opcion-btn" data-valor="29-white"><span>29" White</span> <small>$400</small></button>
+                        </div>
+                    </div>
+                    <div class="opcion" data-tipo="grupo">
+                        <h3><i class="fas fa-cogs"></i> Groupset</h3>
+                        <div class="opciones-lista">
+                            <button class="opcion-btn active" data-valor="shimano"><span>Shimano XT</span> <small>$0</small></button>
+                            <button class="opcion-btn" data-valor="sram"><span>SRAM GX</span> <small>$350</small></button>
+                        </div>
+                    </div>
+                    <button class="btn-comprar-config" id="comprarConfig">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart - $<span id="precioFinalConfig">1899</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="productos">
+        <div class="container">
+            <h2>Ready Builds</h2>
+            <div class="filtros">
+                <button class="filtro-btn active" data-categoria="all">All</button>
+                <button class="filtro-btn" data-categoria="mountain">MTB</button>
+                <button class="filtro-btn" data-categoria="ruta">Road</button>
+            </div>
+            <div id="productos-grid" class="productos-grid"></div>
+        </div>
+    </section>
+
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart">
+            <div class="cart-header">
+                <h3>Your Build</h3>
+                <span class="close-cart" id="closeCart">&times;</span>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-total">
+                <h3>Total: $<span id="cartTotal">0</span></h3>
+                <button class="btn-checkout">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 BiciNaked. Raw bikes. Pure performance.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
